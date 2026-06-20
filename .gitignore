@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+data/test.ft.txt
+data/train.ft.txt.bz2
+*.db
+.streamlit/
+venv/
+.DS_Store

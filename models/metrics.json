@@ -1,0 +1,50 @@
+{
+  "logistic_regression": {
+    "accuracy": 0.874,
+    "precision": 0.873,
+    "recall": 0.8753,
+    "f1_score": 0.8742,
+    "confusion_matrix": [
+      [
+        2618,
+        382
+      ],
+      [
+        374,
+        2626
+      ]
+    ]
+  },
+  "naive_bayes": {
+    "accuracy": 0.8618,
+    "precision": 0.8654,
+    "recall": 0.857,
+    "f1_score": 0.8612,
+    "confusion_matrix": [
+      [
+        2600,
+        400
+      ],
+      [
+        429,
+        2571
+      ]
+    ]
+  },
+  "svm": {
+    "accuracy": 0.8652,
+    "precision": 0.868,
+    "recall": 0.8613,
+    "f1_score": 0.8646,
+    "confusion_matrix": [
+      [
+        2607,
+        393
+      ],
+      [
+        416,
+        2584
+      ]
+    ]
+  }
+}

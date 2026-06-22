@@ -1,15 +1,15 @@
-# 💬 Duygu Analizi Gösterge Paneli (Sentiment Analysis Dashboard)
+# Duygu Analizi Gösterge Paneli (Sentiment Analysis Dashboard)
 
 IYD 328 - İş Yeri Deneyimi dersi kapsamında geliştirilmiş, müşteri yorumlarını otomatik olarak
 **Pozitif** veya **Negatif** olarak sınıflandıran uçtan uca bir NLP + makine öğrenmesi sistemi.
 
-## 📌 Proje Özeti
+## Proje Özeti
 
 Sistem; metin verisini temizler, TF-IDF ile özellik çıkarımı yapar, üç farklı makine öğrenmesi
 modeli eğitip karşılaştırır, tahminleri bir SQLite veritabanında saklar ve sonuçları interaktif
 bir Streamlit gösterge paneli üzerinden görselleştirir.
 
-## 🗂️ Veri Seti
+## Veri Seti
 
 Bu projede, Adam Bittlingmayer tarafından hazırlanmış **Amazon Reviews** veri seti kullanılmıştır:
 https://www.kaggle.com/datasets/bittlingmayer/amazonreviews
@@ -24,7 +24,7 @@ https://www.kaggle.com/datasets/bittlingmayer/amazonreviews
 > Amazon ürün yorumları veri seti kullanılmıştır; format ve amaç (ikili duygu sınıflandırması)
 > birebir aynıdır.
 
-## 🧠 Sistem Tasarımı
+## Sistem Tasarımı
 
 ```
 data/test.ft.txt  --> prepare_dataset.py --> data/reviews_clean.csv
@@ -62,7 +62,7 @@ sentiment-dashboard/
     └── database.py            # SQLite veritabanı işlemleri
 ```
 
-## 🔬 NLP Ön İşleme Süreci
+## NLP Ön İşleme Süreci
 
 1. **Metin temizleme**: HTML tag, URL ve özel karakterlerin kaldırılması
 2. **Küçük harfe dönüştürme**
@@ -70,9 +70,9 @@ sentiment-dashboard/
 4. **Stopword kaldırma**: İngilizce stopword listesi (NLTK)
 5. **Özellik çıkarımı**: TF-IDF (unigram + bigram, max 8000 özellik)
 
-## 🤖 Model Seçimi ve Gerekçesi
+## Model Seçimi ve Gerekçesi
 
-Üç farklı algoritma aileси karşılaştırılmıştır:
+Üç farklı algoritma ailesi karşılaştırılmıştır:
 
 | Model | Neden Seçildi |
 |---|---|
@@ -80,13 +80,13 @@ sentiment-dashboard/
 | **Multinomial Naive Bayes** | Metin sınıflandırmada klasik, hızlı ve olasılıksal bir karşılaştırma noktası |
 | **Linear SVM (LinearSVC)** | Yüksek boyutlu uzaylarda genelde en iyi performans gösteren margin-based sınıflandırıcı |
 
-## 📊 Değerlendirme Sonuçları
+## Değerlendirme Sonuçları
 
 (30.000 satırlık veri, %80 eğitim / %20 test ayrımı, stratified split)
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---|---|---|---|
-| **Logistic Regression** ⭐ | 0.874 | 0.873 | 0.875 | **0.874** |
+| **Logistic Regression** | 0.874 | 0.873 | 0.875 | **0.874** |
 | SVM (Linear) | 0.865 | 0.868 | 0.861 | 0.865 |
 | Naive Bayes | 0.862 | 0.865 | 0.857 | 0.861 |
 
@@ -96,7 +96,7 @@ modelleri de seçip karşılaştırabilir).
 Confusion matrix'ler ve detaylı metrikler `models/metrics.json` dosyasında ve dashboard'un
 "Model Karşılaştırma" sekmesinde görselleştirilmiştir.
 
-## 🗄️ Veritabanı Şeması (SQLite)
+## Veritabanı Şeması (SQLite)
 
 ```sql
 CREATE TABLE predictions (
@@ -109,14 +109,14 @@ CREATE TABLE predictions (
 );
 ```
 
-## 🖥️ Gösterge Paneli Özellikleri
+## Gösterge Paneli Özellikleri
 
 1. **Yorum Analizi**: Kullanıcı serbest metin girer, model seçer, anlık tahmin + güven skoru alır
 2. **Model Karşılaştırma**: 3 modelin metrikleri ve confusion matrix'leri yan yana
 3. **Geçmiş & İstatistikler**: Tüm geçmiş tahminler, duygu dağılım grafiği
 4. **Kelime Analizi**: Pozitif/Negatif yorumlarda en sık kullanılan 20 kelime
 
-## ⚙️ Kurulum ve Çalıştırma
+## Kurulum ve Çalıştırma
 
 ### 1. Bağımlılıkları kurun
 ```bash
@@ -152,7 +152,7 @@ streamlit run app.py
 
 Tarayıcıda `http://localhost:8501` adresinden erişilebilir.
 
-## 📚 Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
 - **Python 3.12**
 - **scikit-learn** — TF-IDF, Logistic Regression, Naive Bayes, SVM
@@ -162,14 +162,14 @@ Tarayıcıda `http://localhost:8501` adresinden erişilebilir.
 - **SQLite** — tahmin geçmişi depolama
 - **pandas / joblib** — veri işleme ve model serileştirme
 
-## 🎓 Öğrenim Çıktıları
+## Öğrenim Çıktıları
 
 Bu proje kapsamında: Doğal Dil İşleme, metin ön işleme teknikleri, makine öğrenmesi
 sınıflandırması, model değerlendirme metrikleri, SQL veritabanı entegrasyonu, veri
 görselleştirme, dashboard geliştirme ve Git/GitHub sürüm kontrolü konularında uygulamalı
 deneyim kazanılmıştır.
 
-## 📸 Ekran Görüntüleri
+## Ekran Görüntüleri
 
 ### Yorum Analizi
 ![Yorum Analizi](screenshots/yorum_analizi.png)
